@@ -5,48 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- PRIMARY SEO METADATA -->
-    <title>PulseTime Pro | Premium Time Management & Productivity Suite</title>
-    <meta name="description" content="PulseTime Pro is a premium SaaS-style multi-tool time management platform. Master your productivity with our professional stopwatch, countdown timers, Pomodoro system, and more. No account needed, fully offline capable.">
-    <meta name="keywords" content="time management, stopwatch online, countdown timer, pomodoro timer, productivity tools, sleep timer, multi-timer system, professional alarm, SaaS time tools">
+    <title>PulseTime Pro | Premium Online Stopwatch & Timer Suite</title>
+    <meta name="description" content="PulseTime Pro is the ultimate premium online stopwatch and countdown timer. Features classroom timers, race timers, and specialized productivity tools. Free, fast, and professional.">
+    <meta name="keywords" content="online stopwatch, countdown timer, classroom timer, race timer, egg timer, productivity tools, professional timer, SaaS time tools">
     <meta name="author" content="PulseTime Pro">
-    <link rel="canonical" href="https://moe-2010.github.io/pulsetime-pro/">
+    <link rel="canonical" href="https://moe-2010.github.io/">
     
     <!-- OPEN GRAPH / FACEBOOK -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://moe-2010.github.io/pulsetime-pro/">
-    <meta property="og:title" content="PulseTime Pro | The Ultimate Professional Time Management Suite">
-    <meta property="og:description" content="Experience precision and elegance with PulseTime Pro. A complete suite of time management tools designed for professionals.">
-    <meta property="og:image" content="https://moe-2010.github.io/pulsetime-pro/assets/og-image.png">
-    <meta property="og:site_name" content="PulseTime Pro">
-
+    <meta property="og:url" content="https://moe-2010.github.io/">
+    <meta property="og:title" content="PulseTime Pro | Premium Online Stopwatch & Timer Suite">
+    <meta property="og:description" content="The most professional online stopwatch and timer suite. Perfect for classrooms, meetings, and personal productivity.">
+    <meta property="og:image" content="https://moe-2010.github.io/assets/og-image.png">
+    
     <!-- TWITTER CARD METADATA -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PulseTime Pro | Premium Time Management Suite">
-    <meta name="twitter:description" content="Master your time with our professional-grade stopwatch, Pomodoro, and multi-timer tools. Designed for maximum productivity.">
-    <meta name="twitter:image" content="https://moe-2010.github.io/pulsetime-pro/assets/twitter-card.png">
-
-    <!-- JSON-LD STRUCTURED DATA -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "PulseTime Pro",
-      "url": "https://moe-2010.github.io/pulsetime-pro/",
-      "description": "A premium, professional-grade suite of time management tools including stopwatch, countdown timer, and Pomodoro.",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
-
+    <meta name="twitter:title" content="PulseTime Pro | Premium Online Stopwatch & Timer Suite">
+    <meta name="twitter:description" content="Master your time with our professional-grade stopwatch, Pomodoro, and specialized timers.">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -60,7 +40,7 @@
 <body class="light-mode">
     <div class="app-wrapper">
         
-        <!-- Professional Top Navbar -->
+        <!-- Top Navbar -->
         <header class="top-navbar">
             <div class="nav-left">
                 <button id="menu-toggle" class="icon-btn" aria-label="Toggle Menu">
@@ -85,7 +65,7 @@
         </header>
 
         <div class="app-container">
-            <!-- Sidebar Navigation -->
+            <!-- Sidebar -->
             <aside id="sidebar" class="sidebar">
                 <nav>
                     <button class="nav-item active" data-tab="home" title="Home">
@@ -99,6 +79,14 @@
                     <button class="nav-item" data-tab="timer" title="Countdown Timer">
                         <i class="fa-solid fa-hourglass-half"></i>
                         <span class="nav-text">Timer</span>
+                    </button>
+                    <button class="nav-item" data-tab="classroom" title="Classroom Timers">
+                        <i class="fa-solid fa-school"></i>
+                        <span class="nav-text">Classroom</span>
+                    </button>
+                    <button class="nav-item" data-tab="race" title="Race Timers">
+                        <i class="fa-solid fa-flag-checkered"></i>
+                        <span class="nav-text">Race</span>
                     </button>
                     <button class="nav-item" data-tab="pomodoro" title="Pomodoro">
                         <i class="fa-solid fa-brain"></i>
@@ -128,21 +116,14 @@
                         <span class="nav-text">Privacy</span>
                     </button>
                 </nav>
-                <div class="sidebar-footer">
-                    <div class="shortcut-hint desktop-only">
-                        <span class="key">Space</span> to Start/Stop
-                    </div>
-                </div>
             </aside>
 
-            <!-- Overlay for mobile menu -->
             <div id="menu-overlay" class="menu-overlay"></div>
 
-            <!-- Main Content -->
             <main class="main-content">
                 <div class="content-wrapper">
                     
-                    <!-- AD SLOT 1: HEADER AD -->
+                    <!-- AD SLOT 1 -->
                     <div class="ad-container ad-header-top">
                         <div class="ad-placeholder">
                             <i class="fa-solid fa-rectangle-ad"></i>
@@ -150,208 +131,108 @@
                         </div>
                     </div>
 
-                    <!-- Dynamic Content Header -->
-                    <div class="content-header">
-                        <h1 id="main-title" class="main-title">Welcome to PulseTime Pro</h1>
-                        <p id="main-subtitle" class="main-subtitle">Your all-in-one professional productivity suite.</p>
-                    </div>
-
-                    <!-- HOME / LANDING PAGE SECTION -->
-                    <section id="home" class="tab-content active">
-                        <div class="glass-card hero-card">
-                            <div class="hero-content">
-                                <i class="fa-solid fa-bolt-lightning hero-icon"></i>
-                                <h2>Master Your Time, Master Your Life</h2>
-                                <p>PulseTime Pro brings together a suite of premium time management tools designed for professionals, students, and creators. No accounts, no tracking, just pure productivity.</p>
-                                <button class="btn btn-primary btn-large" onclick="document.querySelector('[data-tab=stopwatch]').click()">Get Started <i class="fa-solid fa-arrow-right"></i></button>
+                    <!-- Main Timer Card (Focused View) -->
+                    <div id="main-timer-container" class="main-timer-container hidden">
+                        <div class="glass-card focused-timer-card">
+                            <div class="focused-header">
+                                <h2 id="focused-tool-name">Stopwatch</h2>
+                                <button class="icon-btn" onclick="window.switchTab('home')"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                            <div class="timer-display-large" id="main-display">00:00:00.00</div>
+                            <div class="focused-controls" id="main-controls">
+                                <!-- Dynamic controls injected here -->
                             </div>
                         </div>
+                    </div>
 
-                        <div class="feature-showcase">
-                            <div class="glass-card feat-mini" onclick="document.querySelector('[data-tab=stopwatch]').click()">
-                                <i class="fa-solid fa-stopwatch"></i>
+                    <!-- HOME SECTION -->
+                    <section id="home" class="tab-content active">
+                        <div class="content-header">
+                            <h1>Online Stopwatch & Timer</h1>
+                            <p>A Simple, Fast Online Stopwatch and Online Countdown timer always available when you need it.</p>
+                        </div>
+
+                        <div class="tool-grid">
+                            <div class="tool-card" onclick="window.switchTab('stopwatch')">
+                                <div class="tool-icon"><i class="fa-solid fa-stopwatch"></i></div>
                                 <h3>Stopwatch</h3>
-                                <p>Precision millisecond tracking with lap support.</p>
+                                <p>Full screen precision stopwatch.</p>
                             </div>
-                            <div class="glass-card feat-mini" onclick="document.querySelector('[data-tab=timer]').click()">
-                                <i class="fa-solid fa-hourglass-half"></i>
-                                <h3>Timer</h3>
-                                <p>Custom countdowns for every task.</p>
+                            <div class="tool-card" onclick="window.switchTab('timer')">
+                                <div class="tool-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                                <h3>Countdown</h3>
+                                <p>Set a timer for any duration.</p>
                             </div>
-                            <div class="glass-card feat-mini" onclick="document.querySelector('[data-tab=pomodoro]').click()">
-                                <i class="fa-solid fa-brain"></i>
+                            <div class="tool-card" onclick="window.switchTab('classroom')">
+                                <div class="tool-icon"><i class="fa-solid fa-school"></i></div>
+                                <h3>Classroom</h3>
+                                <p>Fun timers for schools and meetings.</p>
+                            </div>
+                            <div class="tool-card" onclick="window.switchTab('race')">
+                                <div class="tool-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+                                <h3>Race Timers</h3>
+                                <p>Fun characters racing to the finish.</p>
+                            </div>
+                            <div class="tool-card" onclick="window.switchTab('pomodoro')">
+                                <div class="tool-icon"><i class="fa-solid fa-brain"></i></div>
                                 <h3>Pomodoro</h3>
-                                <p>Deep focus sessions and break cycles.</p>
+                                <p>Boost your focus and productivity.</p>
                             </div>
-                            <div class="glass-card feat-mini" onclick="document.querySelector('[data-tab=multitimer]').click()">
-                                <i class="fa-solid fa-layer-group"></i>
+                            <div class="tool-card" onclick="window.switchTab('multitimer')">
+                                <div class="tool-icon"><i class="fa-solid fa-layer-group"></i></div>
                                 <h3>Multi-Timer</h3>
-                                <p>Manage multiple tasks at once.</p>
+                                <p>Run multiple timers at once.</p>
+                            </div>
+                            <div class="tool-card" onclick="window.switchTab('sleeptimer')">
+                                <div class="tool-icon"><i class="fa-solid fa-moon"></i></div>
+                                <h3>Sleep Timer</h3>
+                                <p>Relaxing timers for rest.</p>
+                            </div>
+                            <div class="tool-card" onclick="window.switchTab('alarm')">
+                                <div class="tool-icon"><i class="fa-solid fa-bell"></i></div>
+                                <h3>Alarm Clock</h3>
+                                <p>Wake up or get reminded.</p>
                             </div>
                         </div>
 
                         <div class="ad-container ad-mid">
-                            <div class="ad-placeholder"><span>Google AdSense - Home Page Mid Ad</span></div>
+                            <div class="ad-placeholder"><span>Google AdSense - Mid Page Ad</span></div>
                         </div>
 
                         <div class="info-content">
-                            <h2>Why Choose PulseTime Pro?</h2>
-                            <p>In a world of complex apps and constant notifications, PulseTime Pro offers a clean, professional, and private alternative for your time management needs.</p>
+                            <h2>The Best Online Stopwatch</h2>
+                            <p>PulseTime Pro is designed to be the fastest and most accurate online stopwatch and timer suite. Whether you need a simple countdown for your kitchen, a fun classroom timer for your students, or a professional stopwatch for your workout, we have you covered.</p>
                             <div class="benefit-list">
-                                <div class="benefit">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span><strong>Privacy First:</strong> No data collection, everything stays in your browser.</span>
-                                </div>
-                                <div class="benefit">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span><strong>SaaS Design:</strong> Modern, high-end interface optimized for all devices.</span>
-                                </div>
-                                <div class="benefit">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span><strong>Offline Ready:</strong> Works perfectly even without an internet connection.</span>
-                                </div>
+                                <div class="benefit"><i class="fa-solid fa-check"></i> <span><strong>Big & Clear:</strong> Large displays for easy reading from across the room.</span></div>
+                                <div class="benefit"><i class="fa-solid fa-check"></i> <span><strong>Full Screen:</strong> Go full screen with a single click for focused use.</span></div>
+                                <div class="benefit"><i class="fa-solid fa-check"></i> <span><strong>Fun Variations:</strong> Choose from a variety of themed timers.</span></div>
                             </div>
                         </div>
                     </section>
 
-                    <!-- STOPWATCH SECTION -->
-                    <section id="stopwatch" class="tab-content">
-                        <div class="glass-card display-card">
-                            <div class="timer-display" id="stopwatch-display">00:00:00.00</div>
-                            <div class="controls">
-                                <button id="stopwatch-start" class="btn btn-primary">Start</button>
-                                <button id="stopwatch-lap" class="btn btn-secondary" disabled>Lap</button>
-                                <button id="stopwatch-reset" class="btn btn-danger">Reset</button>
-                            </div>
-                            <div class="lap-list-container">
-                                <ul id="lap-list"></ul>
-                            </div>
-                        </div>
-                        <div class="ad-container ad-mid">
-                            <div class="ad-placeholder"><span>Google AdSense - Stopwatch Ad</span></div>
-                        </div>
-                    </section>
-
-                    <!-- TIMER SECTION -->
-                    <section id="timer" class="tab-content">
-                        <div class="glass-card display-card">
-                            <div class="timer-input-group">
-                                <div class="input-field">
-                                    <input type="number" id="timer-h" min="0" max="99" value="0" inputmode="numeric">
-                                    <span>HH</span>
-                                </div>
-                                <div class="input-field">
-                                    <input type="number" id="timer-m" min="0" max="59" value="0" inputmode="numeric">
-                                    <span>MM</span>
-                                </div>
-                                <div class="input-field">
-                                    <input type="number" id="timer-s" min="0" max="59" value="0" inputmode="numeric">
-                                    <span>SS</span>
-                                </div>
-                            </div>
-                            <div class="timer-display" id="timer-display">00:00:00</div>
-                            <div class="controls">
-                                <button id="timer-start" class="btn btn-primary">Start</button>
-                                <button id="timer-reset" class="btn btn-danger">Reset</button>
-                            </div>
-                        </div>
-                        <div class="ad-container ad-mid">
-                            <div class="ad-placeholder"><span>Google AdSense - Timer Ad</span></div>
-                        </div>
-                    </section>
-
-                    <!-- POMODORO SECTION -->
-                    <section id="pomodoro" class="tab-content">
-                        <div class="glass-card display-card">
-                            <div class="pomodoro-modes">
-                                <button class="pomo-mode active" data-time="25">Work</button>
-                                <button class="pomo-mode" data-time="5">Short Break</button>
-                                <button class="pomo-mode" data-time="15">Long Break</button>
-                            </div>
-                            <div class="timer-display" id="pomodoro-display">25:00</div>
-                            <div class="controls">
-                                <button id="pomodoro-start" class="btn btn-primary">Start</button>
-                                <button id="pomodoro-reset" class="btn btn-danger">Reset</button>
-                            </div>
-                        </div>
-                        <div class="ad-container ad-mid">
-                            <div class="ad-placeholder"><span>Google AdSense - Pomodoro Ad</span></div>
-                        </div>
-                    </section>
-
-                    <!-- MULTI-TIMER SECTION -->
-                    <section id="multitimer" class="tab-content">
-                        <div class="section-header">
-                            <button id="add-multitimer" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Timer</button>
-                        </div>
-                        <div class="multitimer-grid" id="multitimer-container"></div>
-                        <div class="ad-container ad-mid">
-                            <div class="ad-placeholder"><span>Google AdSense - Multi-Timer Ad</span></div>
-                        </div>
-                    </section>
-
-                    <!-- SLEEP TIMER SECTION -->
-                    <section id="sleeptimer" class="tab-content">
-                        <div class="glass-card display-card">
-                            <div class="timer-input-group">
-                                <div class="input-field">
-                                    <input type="number" id="sleep-m" min="1" max="120" value="30" inputmode="numeric">
-                                    <span>Minutes</span>
-                                </div>
-                            </div>
-                            <div class="timer-display" id="sleep-display">30:00</div>
-                            <div class="controls">
-                                <button id="sleep-start" class="btn btn-primary">Start</button>
-                                <button id="sleep-reset" class="btn btn-danger">Reset</button>
-                            </div>
-                        </div>
-                        <div class="ad-container ad-mid">
-                            <div class="ad-placeholder"><span>Google AdSense - Sleep Timer Ad</span></div>
-                        </div>
-                    </section>
-
-                    <!-- ALARMS SECTION -->
-                    <section id="alarm" class="tab-content">
-                        <div class="section-header">
-                            <button id="add-alarm" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Alarm</button>
-                        </div>
-                        <div class="alarm-list" id="alarm-container"></div>
-                        <div class="ad-container ad-mid">
-                            <div class="ad-placeholder"><span>Google AdSense - Alarms Ad</span></div>
-                        </div>
-                    </section>
-
-                    <!-- ABOUT US SECTION -->
+                    <!-- ABOUT SECTION -->
                     <section id="about" class="tab-content">
-                        <div class="glass-card doc-card">
-                            <h2>About PulseTime Pro</h2>
-                            <p>PulseTime Pro was born from a simple idea: that professional productivity tools should be as beautiful as they are functional.</p>
-                            <div class="ad-container ad-mid">
-                                <div class="ad-placeholder"><span>Google AdSense - About Page Ad</span></div>
-                            </div>
+                        <div class="info-content">
+                            <h1>About PulseTime Pro</h1>
+                            <p>PulseTime Pro was created to provide a modern, premium alternative to traditional online stopwatches. We focus on speed, accuracy, and a beautiful user experience.</p>
+                            <h3>Our Mission</h3>
+                            <p>To provide free, high-quality productivity tools that work on any device, anywhere, at any time.</p>
                         </div>
                     </section>
 
-                    <!-- PRIVACY POLICY SECTION -->
+                    <!-- PRIVACY SECTION -->
                     <section id="privacy" class="tab-content">
-                        <div class="glass-card doc-card">
-                            <h2>Privacy Policy</h2>
-                            <p>Last updated: May 21, 2026</p>
-                            <div class="ad-container ad-mid">
-                                <div class="ad-placeholder"><span>Google AdSense - Privacy Page Ad</span></div>
-                            </div>
+                        <div class="info-content">
+                            <h1>Privacy Policy</h1>
+                            <p>Your privacy is our top priority. PulseTime Pro does not collect any personal data, track your location, or store any information on our servers. All your settings and timers are stored locally on your device.</p>
                         </div>
                     </section>
 
-                    <!-- AD SLOT 3: FOOTER AD -->
+                    <!-- AD SLOT 3 -->
                     <div class="ad-container ad-footer-bottom">
-                        <div class="ad-placeholder">
-                            <i class="fa-solid fa-rectangle-ad"></i>
-                            <span>Google AdSense - Footer Responsive</span>
-                        </div>
+                        <div class="ad-placeholder"><span>Google AdSense - Footer Responsive</span></div>
                     </div>
-
-                </div> <!-- End Content Wrapper -->
+                </div>
             </main>
         </div>
     </div>
@@ -365,11 +246,8 @@
         </div>
     </div>
 
-    <!-- Toast Container -->
     <div id="toast-container" class="toast-container"></div>
-
-    <!-- Audio Elements -->
-    <audio id="audio-alarm-1" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+    <audio id="audio-alarm" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
 
     <script src="script.js"></script>
 </body>
