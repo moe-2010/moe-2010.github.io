@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // TAB NAVIGATION
     window.switchTab = (tabId) => {
         state.activeTab = tabId;
+        
+        // Update tab visibility
         document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
         document.querySelectorAll('.nav-item').forEach(item => {
             item.classList.toggle('active', item.dataset.tab === tabId);
@@ -65,8 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
             activeToolTitle.textContent = tabId.charAt(0).toUpperCase() + tabId.slice(1);
         }
 
+        // Close sidebar on navigation (mobile)
         sidebar.classList.remove('active');
         menuOverlay.classList.remove('active');
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
     };
 
     function setupToolControls(toolId) {
@@ -79,23 +85,26 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (['timer', 'classroom', 'race', 'pomodoro', 'sleeptimer'].includes(toolId)) {
             mainDisplay.textContent = formatTimer(state.timer.remainingTime);
             const inputContainer = document.createElement('div');
+            inputContainer.className = 'timer-inputs';
             inputContainer.style.display = 'flex';
             inputContainer.style.gap = '10px';
             inputContainer.style.marginBottom = '20px';
+            inputContainer.style.justifyContent = 'center';
             inputContainer.innerHTML = `
-                <input type="number" id="input-h" placeholder="H" style="width: 60px; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
-                <input type="number" id="input-m" placeholder="M" style="width: 60px; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
-                <input type="number" id="input-s" placeholder="S" style="width: 60px; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                <input type="number" id="input-h" placeholder="H" min="0" max="99" style="width: 70px; padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 1.2rem; text-align: center;">
+                <input type="number" id="input-m" placeholder="M" min="0" max="59" style="width: 70px; padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 1.2rem; text-align: center;">
+                <input type="number" id="input-s" placeholder="S" min="0" max="59" style="width: 70px; padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 1.2rem; text-align: center;">
             `;
             mainControls.appendChild(inputContainer);
             const ctrlGroup = document.createElement('div');
             ctrlGroup.style.display = 'flex';
-            ctrlGroup.style.gap = '10px';
+            ctrlGroup.style.gap = '15px';
+            ctrlGroup.style.justifyContent = 'center';
             mainControls.appendChild(ctrlGroup);
             createButton('Start', 'btn-primary', startTimer, ctrlGroup);
             createButton('Reset', 'btn-danger', resetTimer, ctrlGroup);
         } else {
-            mainDisplay.textContent = "Coming Soon";
+            mainDisplay.textContent = "Feature Coming Soon";
             createButton('Back to Home', 'btn-primary', () => window.switchTab('home'));
         }
     }
@@ -109,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return btn;
     }
 
+    // STOPWATCH LOGIC
     function toggleStopwatch() {
         if (!state.stopwatch.running) {
             state.stopwatch.startTime = Date.now() - state.stopwatch.elapsedTime;
@@ -144,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // TIMER LOGIC
     function startTimer() {
         if (!state.timer.running) {
             if (state.timer.remainingTime === 0) {
@@ -152,7 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const s = parseInt(document.getElementById('input-s').value) || 0;
                 state.timer.remainingTime = (h * 3600 + m * 60 + s) * 1000;
             }
-            if (state.timer.remainingTime <= 0) return;
+            if (state.timer.remainingTime <= 0) {
+                showToast("Please set a time first!");
+                return;
+            }
             state.timer.endTime = Date.now() + state.timer.remainingTime;
             state.timer.timerInterval = setInterval(updateTimer, 100);
             state.timer.running = true;
@@ -187,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (startBtn) startBtn.textContent = 'Start';
     }
 
+    // HELPERS
     function formatTime(ms) {
         const date = new Date(ms);
         const mm = String(date.getUTCMinutes()).padStart(2, '0');
@@ -208,16 +223,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const toast = document.createElement('div');
         toast.className = 'glass-card toast';
         toast.style.padding = '15px 25px';
-        toast.style.background = 'white';
+        toast.style.background = state.isDarkMode ? 'rgba(30, 41, 59, 0.9)' : 'white';
+        toast.style.color = state.isDarkMode ? 'white' : '#1e293b';
         toast.style.borderRadius = '12px';
         toast.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
         toast.style.marginBottom = '10px';
+        toast.style.animation = 'slideIn 0.3s ease';
         toast.textContent = message;
         container.appendChild(toast);
-        setTimeout(() => toast.remove(), 4000);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 300);
+        }, 4000);
     }
 
-    menuToggle.addEventListener('click', () => {
+    // EVENT LISTENERS
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         sidebar.classList.toggle('active');
         menuOverlay.classList.toggle('active');
     });
@@ -240,9 +262,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.code === 'Space' && state.activeTab === 'stopwatch') {
             e.preventDefault();
-            toggleStopwatch.call(Array.from(mainControls.querySelectorAll('.btn')).find(b => b.textContent === 'Start' || b.textContent === 'Pause' || b.textContent === 'Resume'));
+            const startBtn = Array.from(mainControls.querySelectorAll('.btn')).find(b => b.textContent === 'Start' || b.textContent === 'Pause' || b.textContent === 'Resume');
+            if (startBtn) startBtn.click();
         }
     });
 
+    // Close sidebar if clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && e.target !== menuToggle) {
+            sidebar.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+    });
+
+    // Initialize
     window.switchTab('home');
 });
