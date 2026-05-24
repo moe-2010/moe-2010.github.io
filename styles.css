@@ -530,7 +530,7 @@ body.dark-mode {
     background: white;
     border-top: 1px solid #ddd;
     z-index: 2000;
-    padding: clamp(6px, 2vw, 8px);
+    padding: 4px 8px;
 }
 
 .dark-mode .sticky-anchor-ad { 
@@ -542,7 +542,7 @@ body.dark-mode {
     position: relative; 
     max-width: 1000px; 
     margin: 0 auto; 
-    height: clamp(70px, 15vw, 90px); 
+    height: 50px; 
 }
 
 .ad-label { 
