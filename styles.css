@@ -275,7 +275,7 @@ body.dark-mode {
     max-width: 1000px;
     display: flex;
     flex-direction: column;
-    gap: clamp(24px, 5vw, 40px);
+    gap: clamp(12px, 3vw, 24px);
     padding-bottom: 120px;
 }
 
@@ -390,7 +390,7 @@ body.dark-mode {
 .focused-timer-card {
     width: 100%;
     max-width: 900px;
-    padding: clamp(40px, 8vw, 60px) clamp(24px, 6vw, 40px);
+    padding: clamp(24px, 5vw, 40px) clamp(16px, 4vw, 32px);
     text-align: center;
     box-shadow: 0 30px 60px -15px rgba(0,0,0,0.2);
     display: flex;
@@ -541,7 +541,7 @@ body.dark-mode {
 }
 
 .ad-placeholder {
-    height: clamp(80px, 20vw, 100px);
+    height: clamp(50px, 15vw, 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -549,6 +549,7 @@ body.dark-mode {
     opacity: 0.4;
     font-size: clamp(0.7rem, 2vw, 0.8rem);
     gap: 8px;
+    padding: 8px;
 }
 
 .sticky-anchor-ad {
