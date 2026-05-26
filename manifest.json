@@ -1,0 +1,46 @@
+{
+  "name": "PulseTime Pro - Premium Online Stopwatch & Productivity Tools",
+  "short_name": "PulseTime Pro",
+  "description": "Professional-grade online stopwatch, countdown timers, Pomodoro focus blocks, and classroom tools. Free, fast, and precise.",
+  "start_url": "https://moe-2010.github.io/",
+  "scope": "https://moe-2010.github.io/",
+  "display": "standalone",
+  "theme_color": "#4f46e5",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://moe-2010.github.io/logo.png",
+      "sizes": "1248x1248",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://moe-2010.github.io/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://moe-2010.github.io/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://moe-2010.github.io/logo.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "https://moe-2010.github.io/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}
