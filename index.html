@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     
     <!-- PRIMARY SEO METADATA -->
     <title>PulseTime Pro | Premium Online Stopwatch, Pomodoro & Productivity Tools</title>
@@ -45,13 +45,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-premium.css" media="print" onload="this.media='all'">
 
 
     <!-- JSON-LD SCHEMA MARKUP (SITE-WIDE) -->
@@ -135,13 +135,16 @@
     </script>
 </head>
 <body class="light-mode">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" as="style">
+    <link rel="preload" href="script-optimized.js" as="script">
     <div class="app-wrapper">
         
         <!-- Top Navbar -->
         <header class="top-navbar">
             <div class="nav-left">
-                <button id="menu-toggle" class="icon-btn" aria-label="Toggle Menu">
-                    <i class="fa-solid fa-bars"></i>
+                <button id="menu-toggle" class="icon-btn" aria-label="Toggle navigation menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
                 </button>
                 <div class="branding">
                     <i class="fa-solid fa-bolt-lightning brand-icon"></i>
@@ -152,11 +155,11 @@
                 <span id="active-tool-title" class="active-tool-display">Home</span>
             </div>
             <div class="nav-right">
-                <button class="theme-toggle-btn icon-btn" title="Toggle Theme">
-                    <i class="fa-solid fa-moon"></i>
+                <button class="theme-toggle-btn icon-btn" aria-label="Toggle dark and light theme" title="Toggle Theme">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
                 </button>
-                <button class="icon-btn" id="settings-btn" title="Settings">
-                    <i class="fa-solid fa-cog"></i>
+                <button class="icon-btn" id="settings-btn" aria-label="Open settings menu" title="Settings">
+                    <i class="fa-solid fa-cog" aria-hidden="true"></i>
                 </button>
             </div>
         </header>
@@ -165,16 +168,16 @@
             <!-- Sidebar -->
             <aside id="sidebar" class="sidebar">
                 <nav>
-                    <button class="nav-item active" data-tab="home" title="Home">
-                        <i class="fa-solid fa-house"></i>
+                    <button class="nav-item active" data-tab="home" title="Home" aria-label="Go to Home page">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
                         <span class="nav-text">Home</span>
                     </button>
-                    <button class="nav-item" data-tab="stopwatch" title="Stopwatch">
-                        <i class="fa-solid fa-stopwatch"></i>
+                    <button class="nav-item" data-tab="stopwatch" title="Stopwatch" aria-label="Go to Stopwatch tool">
+                        <i class="fa-solid fa-stopwatch" aria-hidden="true"></i>
                         <span class="nav-text">Stopwatch</span>
                     </button>
-                    <button class="nav-item" data-tab="timer" title="Countdown Timer">
-                        <i class="fa-solid fa-hourglass-half"></i>
+                    <button class="nav-item" data-tab="timer" title="Countdown Timer" aria-label="Go to Countdown Timer tool">
+                        <i class="fa-solid fa-hourglass-half" aria-hidden="true"></i>
                         <span class="nav-text">Timer</span>
                     </button>
                     <button class="nav-item" data-tab="classroom" title="Classroom Timers">
@@ -593,6 +596,6 @@
     <div id="toast-container" class="toast-container"></div>
     <audio id="audio-alarm" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
 
-    <script src="script.js"></script>
+    <script src="script-optimized.js" defer></script>
 </body>
 </html>
